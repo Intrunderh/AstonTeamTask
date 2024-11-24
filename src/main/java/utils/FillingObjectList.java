@@ -37,7 +37,7 @@ public class FillingObjectList {
     private final static List<String> animalList_Kind = List.of(
             "Fish", "Bird","Primates", "Reptiles","Amphibians");
     private final static List<String> animalList_EyeColor = List.of(
-    "Black", "Orange", "Brown", "Yellow", "Blue");
+            "Black", "Orange", "Brown", "Yellow", "Blue");
     private final static List<Boolean> animalList_isHair = List.of(true, false);
 
     public List fillAnimalList(int count) {
@@ -93,12 +93,13 @@ public class FillingObjectList {
         if (count > 0) {
             barrelList = new ArrayList<Barrel>(count);
             String storedMaterial, barrelMaterial;
-            int volume;
+            int volume; int hash;
 
             for (int i = 0; i < count; i++) {;
                 storedMaterial = String.valueOf(generateRandomInRangeNotIncludeEnd(0, barrelList.size()));
                 barrelMaterial = String.valueOf(generateRandomInRangeNotIncludeEnd(0, barrel_List_Material.size()));
                 volume = generateRandomInRangeIncludeEnd(minVolume, maxVolume);
+//                hash = hashCode()...
                 barrelList.add(new Barrel.Builder()
                         .storedMaterial(storedMaterial)
                         .barrelMaterial(barrelMaterial)
