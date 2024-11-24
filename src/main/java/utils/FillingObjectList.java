@@ -23,15 +23,12 @@ public class FillingObjectList {
     private final static int maxVolume = 100;
     private final static int minVolume = 5;
     private final static List<List<String>> barrel_List_Stored = List.of(
-            List.of("Water", "Plastic"),
-            List.of("Soda", "Glass"),
-            List.of("Coke", "Cardboard"),
-            List.of("Syrup", "Paper"),
-            List.of("Coconut milk", "Can")
+            List.of("Water", "Plastic", "100"),
+            List.of("Soda", "Glass", "50"),
+            List.of("Coke", "Cardboard", "30"),
+            List.of("Syrup", "Paper", "95"),
+            List.of("Coconut milk", "Can", "40")
     );
-    // Определить нужно ли вообще делить таким образом листы
-    private final static List<String> barrel_List_Material = List.of(
-            "Plastic", "Glass", "Cardboard", "Paper", "Can");
 
     // как добавить булевую шерсть
     private final static List<String> animalList_Kind = List.of(
@@ -69,13 +66,14 @@ public class FillingObjectList {
         if (count > 0) {
             humanList = new ArrayList<Human>(count);
             int age, indexSurname;
-            Gender gender;
+            Gender gender1 = Gender.WOMAN;
+            Gender gender2 = Gender.WOMAN;
             // как инициализировать
 
             for (int i = 0; i < count; i++) {
                 age = generateRandomInRangeIncludeEnd(minYear, maxYear);
                 // и добавить его вот здесь
-                gender = generateRandomInRangeIncludeEnd(0, genderList.size());
+                gender = genderDiff ? gender1 : gender2;
                 indexSurname = generateRandomInRangeNotIncludeEnd(0, humanSurnameList.size());
                 humanSurnameList.add(new Human.Builder().
                         age(age).
