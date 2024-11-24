@@ -55,7 +55,7 @@ public final class Human implements Comparable<Human>, Serializable{
         if (ageComp != 0) {
             return ageComp;
         }
-        return this.gender.equals(other.gender);
+        return this.gender.equals(other.gender) ? 0 : 1;
     }
 
     @Override
