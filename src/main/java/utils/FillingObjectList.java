@@ -22,7 +22,7 @@ public class FillingObjectList {
     // как добавить объем
     private final static int maxVolume = 100;
     private final static int minVolume = 5;
-    private final static List<List<String>> barrel_List_Stored = List.of(
+    private final static List<List<String>> barrelList = List.of(
             List.of("Water", "Plastic", "100"),
             List.of("Soda", "Glass", "50"),
             List.of("Coke", "Cardboard", "30"),
@@ -31,11 +31,15 @@ public class FillingObjectList {
     );
 
     // как добавить булевую шерсть
-    private final static List<String> animalList_Kind = List.of(
-            "Fish", "Bird","Primates", "Reptiles","Amphibians");
-    private final static List<String> animalList_EyeColor = List.of(
-            "Black", "Orange", "Brown", "Yellow", "Blue");
-    private final static List<Boolean> animalList_isHair = List.of(true, false);
+    private final static List<List<String>> animalListFill = List.of(
+            List.of("Fish", "Black", "false"),
+            List.of("Bird", "Orange", "true"),
+            List.of("Primates", "Brown", "true"),
+            List.of("Reptiles", "Yellow", "false"),
+            List.of("Amphibians", "Blue", "false")
+    );
+    // Можно попробовать использовать Boolean.parseBoolean()
+//    private final static List<Boolean> animalList_isHair = List.of(true, false);
 
     public List fillAnimalList(int count) {
         List animalList;
@@ -86,14 +90,17 @@ public class FillingObjectList {
         }
         return humanList;
     }
+
     public List fillBarrelList(int count) {
         List barrelList;
         if (count > 0) {
             barrelList = new ArrayList<Barrel>(count);
             String storedMaterial, barrelMaterial;
-            int volume; int hash;
+            int volume;
+            int hash;
 
-            for (int i = 0; i < count; i++) {;
+            for (int i = 0; i < count; i++) {
+                ;
                 storedMaterial = String.valueOf(generateRandomInRangeNotIncludeEnd(0, barrelList.size()));
                 barrelMaterial = String.valueOf(generateRandomInRangeNotIncludeEnd(0, barrel_List_Material.size()));
                 volume = generateRandomInRangeIncludeEnd(minVolume, maxVolume);
@@ -110,11 +117,11 @@ public class FillingObjectList {
         return barrelList;
     }
 
-    private int generateRandomInRangeIncludeEnd(int start, int finish){
+    private int generateRandomInRangeIncludeEnd(int start, int finish) {
         return (int) (Math.random() * (finish - start + 1) + start);
     }
 
-    private int generateRandomInRangeNotIncludeEnd(int start, int finish){
+    private int generateRandomInRangeNotIncludeEnd(int start, int finish) {
         return (int) (Math.random() * (finish - start) + start);
     }
 
